@@ -17,7 +17,27 @@ class User < ApplicationRecord
 
   private
   # Validates the size of an uploaded picture.
-  def picture_size
-    errors.add(:image, 'should be less than 1MB') if image.size > 1.megabytes
-  end       
+  
+  def full_name
+    "#{fname} #{lname}"
+  end
+
+
+  def friends_and_own_posts
+    myfriends = friends
+    our_posts = []
+    myfriends.each do |f|
+      f.posts.each do |p|
+        our_posts << p
+      end
+    end
+    posts.each do |p|
+      our_posts << p
+    end 
+    our_posts
+    end
+
+    def picture_size
+      errors.add(:image, 'should be less than 1MB') if image.size > 1.megabytes
+    end 
 end
