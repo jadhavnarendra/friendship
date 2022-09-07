@@ -4,8 +4,8 @@
     <nav class="navbar navbar-expand-sm">
       <div class ="navbar-header"> 
         <%= link_to posts_path, class: "text-light" do %>
-          
-          <span class="text-white font-weight-bold font-courgette size-24">SpyBook</span>
+          <%=image_tag("user-secret-solid.svg", id: "logo", class: "navbar-branch")%>
+          <span class="text-white font-weight-bold font-courgette size-24">Friendship</span>
         <% end %>
       </div>
 
@@ -26,24 +26,17 @@
       </div>
 
       <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
         
-          <li class="nav-item">
+          <%= link_to "MyProfile", user_path(current_user), class: "dropdown-item font-raleway" %>
+          <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item font-raleway", method: :delete %>
             
-             
-          </li>
-          <li class="nav-item dropdown">
-            <a id= "navbarDropdown" class="nav-link dropdown-toggle font-raleway" 
-                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account <b class="caret"></b>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item font-raleway" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item font-raleway", method: :delete %>
-            </div>
-          </li>
-        
+        <% end %>
       </ul>
     </nav>
   </div>
 </header>
 
+<% if user_signed_in? %>
+  <%= render 'shared/notifications', object: current_user.notifications%>
+<%end%>
