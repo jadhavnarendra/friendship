@@ -28,8 +28,8 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         
-          <%= link_to "MyProfile", user_path(current_user), class: "dropdown-item font-raleway" %>
-          <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item font-raleway", method: :delete %>
+          <%= link_to "MyProfile", user_path(current_user), class: "dropdown-item font-raleway" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item font-raleway", method: :delete %>&nbsp;&nbsp;&nbsp;&nbsp;
             
         <% end %>
       </ul>
@@ -37,6 +37,4 @@
   </div>
 </header>
 
-<% if user_signed_in? %>
-  <%= render 'shared/notifications', object: current_user.notifications%>
-<%end%>
+

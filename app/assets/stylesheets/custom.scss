@@ -289,3 +289,7 @@ a {
 header.fixed-top.navbar-dark.bg-dark.shadow {
   background-color: #3ab7e5 !important;
 }
+
+.navbar-header {
+  flex: none;
+}

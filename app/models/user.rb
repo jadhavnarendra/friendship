@@ -22,6 +22,20 @@ class User < ApplicationRecord
   def full_name
     "#{fname} #{lname}"
   end
+
+  def friends_and_own_posts
+    myfriends = friends
+    our_posts = []
+    
+      
+    
+
+    posts.each do |p|
+      our_posts << p
+    end
+
+    our_posts
+  end
   
   # Returns all posts from this user's friends and self
   

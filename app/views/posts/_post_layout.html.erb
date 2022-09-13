@@ -18,13 +18,30 @@
     </div>
   </div>
 
-
-   
-  
+  <div class="container-fluid mt-4 p-0">
+    <% unless object.imageURL.empty?%>
+      <div class="size-18 text-post">
+        <%= object.content %>
+      </div>
+      <div class="center py-4">
+        
+      </div>
+            
+    <%else%>
+        <div class="size-18 text-post mb-2 ml-3">
+          <%= object.content %>
+        </div>
+    <% end %>
+    <% if current_user.id == object.user_id%>
+      <%= link_to post_path(object), method: :delete, data: { confirm: "You sure?" } do %>
+        <i class="fas fa-trash hover-red"></i>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="border-bottom border-top">
     <div class="container">
-    <%= render 'likes/like_posts', object: object%>
+      <%= render 'likes/like_posts', object: object%>
     </div>
   </div>
 
