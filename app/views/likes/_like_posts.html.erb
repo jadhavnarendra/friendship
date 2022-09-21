@@ -1,11 +1,24 @@
-<span>
-<%= object.likes.count %>
-<%= link_to post_likes_path(object), class: "text-light", method: :post do %>
-  <% if liked?(object, 'post') %>
-      <button class="btn btn-liked"><i class="fas fa-thumbs-up"></i></button>
-    <% else %>
-      <button class="btn btn-neutral"><i class="fas fa-thumbs-up"></i></button>
-  <% end %>
-<% end %>
-Likes
-</span>
+<div class="thum">
+<p id="num"> </p>
+&nbsp; &nbsp;
+<a href="javascript:void(0);" class="hold" title="Hold">Like</a>
+
+ 
+<script>
+$(document).ready(function(){
+  var flag = true;
+  $(".hold").click(function(){
+    if(flag){
+      document.getElementById('num').innerHTML = '1 <a href="javascript:void(0);" class="btn btn-sm btn-info hold" title="Hold"><i class="fas fa-thumbs-up"></i></a>';
+      
+      flag = false;
+    }
+    else{
+      document.getElementById('num').innerHTML = '0 <a href="javascript:void(0);" class="btn btn-sm btn hold" title="Hold"><i class="fas fa-thumbs-down"></i></a>';
+      
+      flag = true;
+    } 
+  });
+});
+</script>
+</div>

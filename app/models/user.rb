@@ -33,7 +33,7 @@ class User < ApplicationRecord
     posts.each do |p|
       our_posts << p
     end
-
+ 
     our_posts
   end
   

@@ -1,2 +1,69 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h2 class="center"> which <span class="font-courgette size-80"> friend do you</span> want </h2>
+  <br>
+  
+<div class="container col-md-8">
+
+  <% unless @friends.empty? %>
+    <div class="card my-5 py-3 bg-light shadow">
+        <h2 class="center pb-3 text-dark border-bottom">My Friends</h2> 
+        <% @friends.each do |f|%>
+          <div class="d-flex align-items-center mb-2 border-bottom py-2">
+            <div class="col-auto p-0 pl-5 text-capitalize">
+              <%= link_to user_path(f) do %>
+                <%= f.full_name %>
+              <% end %>
+            </div>
+            <div class="col-auto p-0 px-1">|</div>
+            <div class="col-auto p-0">   
+              <button class= "btn btn-friend shadow">  <i class="fas fa-user-friends"></i> Friend </button>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+  
+
+
+  <div class="container col-md-8">
+
+  
+    <div class="card my-5 py-3 bg-light shadow">
+        <h2 class="center pb-3 text-dark border-bottom">My Friends</h2> 
+        
+          <div class="d-flex align-items-center mb-2 border-bottom py-2">
+            <div class="col-auto p-0 pl-5 text-capitalize">
+              
+                <h3>hello friend</h3>
+              
+            </div>
+            <div class="col-auto p-0 px-1">|</div>
+            <div class="col-auto p-0">   
+              <button class= "btn btn-friend shadow">  <i class="fas fa-user-friends"></i> Friend </button>
+            </div>
+          </div>
+        
+    </div>
+
+
+    
+  <div class="card my-5 py-3 bg-light shadow">
+      <h2 class="center pb-3 text-dark border-bottom">Sent Friend Requests</h2> 
+     
+        <div class="d-flex align-items-center mb-2 border-bottom py-2">
+          <div class="col-auto p-0 pl-5 text-capitalize"> 
+            <h3>Hi</h3>
+          </div>
+          <div class="col-auto p-0 px-1">|</div>
+          <div class="col-auto p-0">
+            <button class= "btn btn-secondary shadow" disabled> 
+              <i class="fas fa-chalkboard-teacher"></i> Friend Request pending... 
+            </button>
+          </div>
+        </div>
+        
+     
+  </div>
+
+  
+
+</div>
