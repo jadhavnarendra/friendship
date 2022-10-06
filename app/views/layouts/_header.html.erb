@@ -27,6 +27,7 @@
 
       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
+      <%= link_to "Start Chatting", rooms_path %>
       Logged in as <strong><%= current_user.email %></strong>.&nbsp;&nbsp;
       <%= link_to "My Profile", user_path(current_user), class: "dropdown-item font-raleway" %>
       &nbsp;&nbsp;&nbsp;

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
+  get 'pages/home'
   root 'users#index'
   devise_for :users
+
+  resources :rooms
   resources :users, only: %i[index show] do
     resources :friends, only: %i[create] do
       collection do
@@ -19,5 +23,7 @@ Rails.application.routes.draw do
   resources :comments, only: %i[new create destroy] do
     resources :likes, only: %i[create]
   end
+
+  #get 'user/:id', to: 'users#show', as: 'user'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
